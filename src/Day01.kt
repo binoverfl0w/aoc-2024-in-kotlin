@@ -1,21 +1,25 @@
+import java.util.*
+import java.util.regex.Pattern
+import kotlin.math.abs
+
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    val whiteSpacePattern = Pattern.compile("\\s+")
+
+    val list1 = PriorityQueue<Int>()
+    val list2 = PriorityQueue<Int>()
+
+    readInput("input1").forEach {
+        val nums = it.split(whiteSpacePattern)
+
+        list1 += nums[0].toInt()
+        list2 += nums[1].toInt()
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    var total = 0
+
+    while (!list1.isEmpty()) {
+        total += abs(list1.poll() - list2.poll())
     }
 
-    // Test if implementation meets criteria from the description, like:
-    check(part1(listOf("test_input")) == 1)
-
-    // Or read a large test input from the `src/Day01_test.txt` file:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
-
-    // Read the input from the `src/Day01.txt` file.
-    val input = readInput("Day01")
-    part1(input).println()
-    part2(input).println()
+    total.println()
 }
