@@ -1,8 +1,5 @@
 import java.util.*
-import java.util.regex.Pattern
 import kotlin.math.abs
-
-val whiteSpacePattern: Pattern = Pattern.compile("\\s+")
 
 fun main() {
     val list1 = PriorityQueue<Int>()
@@ -24,7 +21,7 @@ fun main() {
     total.println()
 }
 
-fun main2() {
+private fun main2() {
     val occurrences = mutableMapOf<Int, Int>()
     val list1 = mutableListOf<Int>()
 
